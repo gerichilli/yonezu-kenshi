@@ -1,0 +1,51 @@
+//Chang color when hover
+
+@mixin hover-color($hoverColor) {
+        content: "";
+        position: absolute;
+        top: .5rem;
+        left: -4px;
+        z-index: -1;
+        background-color: $hoverColor;
+        width: 100%;
+        height: 1rem;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}    
+
+// ----------------- đổi màu theo case 
+
+@mixin bgrgbaColor($bgColor, $opacity) {
+        background-color: rgba($bgColor, $opacity);
+}
+
+@mixin textColor($textColor) {
+        color: $textColor;
+}
+
+
+// ------------------- reponsive theo breakpoint
+
+@mixin respond($breakpoint) {
+        @if $breakpoint == small-phone {
+            @media only screen and (max-width: 31.25em) { @content };    //500px
+        }
+        @if $breakpoint == phone {
+            @media only screen and (max-width: 43.75em) { @content };    //700px
+        }
+        @if $breakpoint == tab-port {
+            @media only screen and (max-width: 56.25em) { @content };    //900px
+        }
+        @if $breakpoint == tab-land {
+            @media only screen and (max-width: 68.75em) { @content };     //1100px
+        }
+        @if $breakpoint == small-desktop {
+            @media only screen and (max-width: 81.25em) { @content };    //1300px
+        }
+        @if $breakpoint == desktop {
+            @media only screen and (max-width: 93.75em) { @content };    //1500px
+        }
+    }
+    
+

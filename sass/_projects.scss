@@ -1,0 +1,517 @@
+.projects {
+    //Không dùng phần này (đã xóa nội dung bên index
+
+    background-color: $grey-light;
+
+    
+    &__heading-box {
+        height: 100vh;
+
+        @include respond(small-desktop) {
+            height: 80vh;
+        }
+
+        @include respond(tab-land) {
+            grid-gap: 8rem;
+        }
+    }
+
+    &__heading-img {
+        width: 50vw;
+        height: auto;
+        margin: 0 auto;
+
+        @include respond(tab-port) {
+            width: 75vw;
+        }
+
+        @include respond(phone) {
+            width: 90vw;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+    }
+    ///////////////////////////////////////////////
+}
+
+//albums grid
+
+.project {
+    @include respond(desktop) {
+        --columns: 3;
+    }
+
+    @include respond(tab-land) {
+        --columns: 2;
+    }
+
+    @include respond(small-phone) {
+        --columns: 1;
+    }
+
+    --content-width: calc(100vw - $default-margin*2); //độ rộng màn hình trừ đi viền hai bên
+    --gutter: 0;
+    --columns: 4;
+
+    --row-size: calc((var(--content-width)-var(--gutter)*(var(--columns)-1))/var(--columns));
+
+    display: grid;
+    width: 100%;
+    max-width: var(--content-width);
+    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-template-rows: var(--row-size);
+    grid-column-gap: var(--gutter);
+    grid-row-gap: var(--gutter);
+
+    &__item {
+        overflow: hidden;
+        position: relative;
+        font-weight: 500;
+        overflow: hidden;
+        z-index: 1;
+        line-height: 1.2;
+    }
+    
+    //Bức màn hiện lên khi hover
+
+    &__bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: all .2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        
+        //--------------- đổi giá trị màu nền ở đây -----------------//
+
+        //Viết dưới dạng loop
+        /*
+        @for $i from 1 through 13 {
+            &--#{$i} {
+                @if $i == 01 {
+                    @include bgrgbaColor($ab-light-blue, 1);
+                }
+
+                @if $i == 02 {
+                    @include bgrgbaColor($ab-light-red, 1);
+                }
+
+                @if $i == 03 {
+                    @include bgrgbaColor($ab-orange, 1);
+                }
+
+                @if $i == 04 {
+                    @include bgrgbaColor($ab-purple, 1);
+                }
+            }
+        }
+        */
+        &--01 {
+            @include bgrgbaColor($ab-light-blue, 1);
+        }
+
+        &--02 {
+            @include bgrgbaColor($ab-light-red, 1);
+        }
+
+        &--03 {
+            @include bgrgbaColor($ab-orange, 1);
+        }
+
+        &--04 {
+            @include bgrgbaColor($ab-purple, 1);
+        }
+
+        &--05 {
+            @include bgrgbaColor($ab-black, 1);
+        }
+
+        &--06 {
+            @include bgrgbaColor($ab-light-green, 1);
+        }
+
+        &--07 {
+            @include bgrgbaColor($ab-yellow, 1);
+        }
+
+        &--08 {
+            @include bgrgbaColor($ab-green, 1);
+        }
+
+        &--09 {
+            @include bgrgbaColor($ab-orange, 1);
+        }
+
+        &--10 {
+            @include bgrgbaColor($ab-pink, 1);
+        }
+
+        &--11 {
+            @include bgrgbaColor($ab-blue, 1);
+        }
+
+        &--12 {
+            @include bgrgbaColor($ab-light-pink, 1);
+        }
+
+        &--13 {
+            @include bgrgbaColor($ab-black, 1);
+        }
+    }
+
+    &__item:hover &__bg {
+        transform: scaleY(1);
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        transform: scale(1.05);
+    }
+
+    &__link:link,
+    &__link:visited {
+        text-decoration: none;
+        color: $primary-dark;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-size: 2rem;
+        letter-spacing: 2px;
+
+        //--------------- đổi giá trị màu nền ở đây -----------------//
+        &--01 {
+            @include bgrgbaColor($ab-light-blue, .5);
+        }
+
+        &--02 {
+            @include bgrgbaColor($ab-light-red, .5);
+        }
+
+        &--03 {
+            @include bgrgbaColor($ab-orange, .5);
+        }
+
+        &--04 {
+            @include bgrgbaColor($ab-purple, .5);
+        }
+
+        &--05 {
+            @include bgrgbaColor($ab-black, .2);
+        }
+
+        &--06 {
+            @include bgrgbaColor($ab-light-green, .5);
+        }
+
+        &--07 {
+            @include bgrgbaColor($ab-yellow, .5);
+        }
+
+        &--08 {
+            @include bgrgbaColor($ab-green, .5);
+        }
+
+        &--09 {
+            @include bgrgbaColor($ab-orange, .5);
+        }
+
+        &--10 {
+            @include bgrgbaColor($ab-pink, .5);
+        }
+
+        &--11 {
+            @include bgrgbaColor($ab-blue, .5);
+        }
+
+        &--12 {
+            @include bgrgbaColor($ab-light-pink, .5);
+        }
+
+        &--13 {
+            @include bgrgbaColor($ab-black, .2);
+        }
+    }
+
+    &__text {
+        color: $primary-dark;
+        background-color: rgba($ab-light-red,.3); 
+        font-size: 1.2rem;
+    }
+
+    &__text-box {
+        top: 75%;
+        width: 70%;
+        position: absolute;
+        left: 3.5%;
+        z-index: 2;
+        transition: all .2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        @include respond(phone) {
+            top: 60%;
+        }
+    }
+
+    &--hidden {
+        padding-top: .5rem;
+        opacity: 0;
+        font-size: 1.4rem;
+        font-weight: 300;
+        color: $primary-light;
+    }
+
+    &__item:hover &__text-box {
+        transform: translateY(-4rem);
+    }
+
+    &__item:hover &--hidden {
+        opacity: 1;
+    }
+
+    &__item:hover &__title,
+    &__item:hover &__text {
+        background-color: transparent; 
+    }
+
+    //--------------- đổi giá trị màu text ở đây -----------------//
+
+    &__item:hover &__title--01,
+    &__item:hover &__text--01 {
+        @include textColor($ab-red);
+    }
+
+    &__item:hover &__title--02,
+    &__item:hover &__text--02 {
+        @include textColor($ab-dark-blue);
+    }
+
+    &__item:hover &__title--03,
+    &__item:hover &__text--03 {
+        @include textColor($ab-light-red);
+    }
+
+    &__item:hover &__title--04,
+    &__item:hover &__text--04 {
+        @include textColor($ab-grey);
+    }
+
+    &__item:hover &__title--05,
+    &__item:hover &__text--05 {
+        @include textColor($ab-white);
+    }
+
+    &__item:hover &__title--06,
+    &__item:hover &__text--06 {
+        @include textColor($ab-pink);
+    }
+
+    &__item:hover &__title--07,
+    &__item:hover &__text--07 {
+        @include textColor($ab-orange);
+    }
+
+    &__item:hover &__title--08,
+    &__item:hover &__text--08 {
+        @include textColor($ab-yellow);
+    }
+
+    &__item:hover &__title--09,
+    &__item:hover &__text--09 {
+        @include textColor($ab-black);
+    }
+
+    &__item:hover &__title--10,
+    &__item:hover &__text--10 {
+        @include textColor($ab-white);
+    }
+
+    &__item:hover &__title--11,
+    &__item:hover &__text--11 {
+        @include textColor($ab-white);
+    }
+
+    &__item:hover &__title--12,
+    &__item:hover &__text--12 {
+        @include textColor($ab-white);
+    }
+
+    &__item:hover &__title--13,
+    &__item:hover &__text--13 {
+        @include textColor($ab-yellow);
+    }
+}
+
+//Không dùng nữa do xóa nội dung file index
+//Chia 1 ảnh ra làm 4 
+.split-img {
+    --gutter: 1rem;
+    top: 8%;
+
+    position: relative;
+
+    &__item {
+        position: absolute;
+        width: 50vw;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+        opacity: 1;
+
+            @include respond(tab-port) {
+                width: 75vw;
+            }
+
+            @include respond(phone) {
+                width: 90vw;
+            }
+
+        &--1 {
+            filter: hue-rotate(180deg);
+            clip-path: polygon(0 0, 50% 0, 50% 50%, 0 50%);
+            -webkit-clip-path: polygon(0 0, 50% 0, 50% 50%, 0 50%);
+            transform: translate(calc(-50% - var(--gutter)),calc(-50% - var(--gutter)));
+        }
+
+        &--2 {
+            filter: grayscale(100%);
+            clip-path: polygon(50% 0, 100% 0, 100% 50%, 50% 50%);
+            -webkit-clip-path: polygon(50% 0, 100% 0, 100% 50%, 50% 50%);
+            transform: translate(calc(-50% + var(--gutter)),calc(-50% - var(--gutter)));
+        }
+
+        &--3 {
+            filter: contrast(180%);
+            clip-path: polygon(0 50%, 50% 50%, 50% 100%, 0 100%);
+            -webkit-clip-path: polygon(0 50%, 50% 50%, 50% 100%, 0 100%);
+            transform: translate(calc(-50% - var(--gutter)),calc(-50% + var(--gutter)));
+        }
+
+        &--4 {
+            filter: sepia(100%);
+            clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+            -webkit-clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+            transform: translate(calc(-50% + var(--gutter)),calc(-50% + var(--gutter)));
+        }
+
+        &--default {
+            opacity: 0;
+            transition: all .2s cubic-bezier(0.19, 1, 0.22, 1);
+            transform: translateY(6rem);
+        }
+    }
+
+    &__child {
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover > *:not(:last-child) {
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    &:hover > *:last-child {
+        opacity: 1;
+    }
+
+    &__text,
+    &__name {
+        --position: 5%;
+        position: absolute;
+        z-index: 100;
+    }
+
+    &__name {
+        font-family: $font-jp;
+        font-weight: 200;
+        font-size: 6rem;
+
+        @include respond(tab-land) {
+            font-size: 5rem;
+        }
+
+        @include respond(phone) {
+            font-size: 3rem;
+        }
+
+        &--1 {
+            top: var(--position);
+            left: var(--position);
+        }
+
+        &--2, 
+        &--4 {
+            color: $primary-light;
+        }
+
+        &--2 {
+            top: var(--position);
+            right: var(--position);
+        }
+
+        &--3 {
+            bottom: var(--position);
+            left: var(--position);
+        }
+
+        &--4 {
+            bottom: var(--position);
+            right: var(--position);
+        }
+    }
+
+    &__text {
+
+        @include respond(tab-land) {
+            --positionY: 30%;
+        }
+
+        --positionX: 5%;
+        --positionY: 26.5%;
+
+        font-size: 1.2rem;
+        width: 10rem;
+
+        &--1 {
+            top: var(--positionY);
+            left: var(--positionX);
+            text-align: left;
+        }
+
+        &--2 {
+            top: var(--positionY);
+            right: var(--positionX);
+            text-align: right;
+        }
+
+        &--3 {
+            bottom: var(--positionY);
+            left: var(--positionX);
+            text-align: left;
+        }
+
+        &--4 {
+            bottom: var(--positionY);
+            right: var(--positionX);
+            text-align: right;
+        }
+
+        &--2,
+        &--4 {
+            color: $primary-light;
+        }
+    }
+}
+
+///////////////////////////////
+
+

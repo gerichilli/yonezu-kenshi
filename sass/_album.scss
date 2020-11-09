@@ -1,0 +1,185 @@
+.album {
+    margin: $default-margin;
+    display: grid;
+    grid-template-rows: minmax(100vh, max-content) 20rem;
+    font-weight: 300;
+    font-family: $font-jp;
+
+    @include respond(phone) {
+        margin: 0;
+        margin-top: $default-margin;
+    }
+
+    & .footer {
+        grid-row: 2 / 3;
+    }
+
+    &__detail {
+        color: $primary-light;
+
+        grid-row: 1 / 2;
+        display: grid;
+        justify-content: space-around;
+        justify-items: center;
+        align-content: center;
+
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, min-content);
+        grid-column-gap: 2rem;
+        grid-row-gap: 1rem;
+
+        @include respond(tab-port) {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, min-content);
+        }
+
+        &--01 {
+            @include bgrgbaColor($ab-red, 1);
+        }
+
+        &--02 {
+            @include bgrgbaColor($ab-light-red, 1);
+        }
+
+        &--03 {
+            @include bgrgbaColor($ab-orange, 1);
+        }
+
+        &--04 {
+            @include bgrgbaColor($ab-purple, 1);
+        }
+
+        &--05 {
+            @include bgrgbaColor($ab-black, 1);
+        }
+
+        &--06 {
+            @include bgrgbaColor($ab-light-green, 1);
+        }
+
+        &--07 {
+            @include bgrgbaColor($ab-orange, 1);
+        }
+
+        &--08 {
+            @include bgrgbaColor($ab-green, 1);
+        }
+
+        &--09 {
+            @include bgrgbaColor($ab-orange, 1);
+        }
+
+        &--10 {
+            @include bgrgbaColor($ab-pink, 1);
+        }
+
+        &--11 {
+            @include bgrgbaColor($ab-blue, 1);
+        }
+
+        &--12 {
+            @include bgrgbaColor($ab-light-pink, 1);
+        }
+
+        &--13 {
+            @include bgrgbaColor($ab-black, 1);
+        }
+    }
+
+    &__heading {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        text-transform: uppercase;
+        font-size: 4rem;
+        margin-bottom: $mb-md;
+
+        @include respond(tab-land) {
+            font-size: 3.5rem;
+        }
+
+        @include respond(tab-port) {
+            grid-row: 3 / 4;
+            margin-top: 3rem;
+            font-size: 2.5rem;
+        }
+    }
+
+    &__tracklist {
+        grid-column: 1 / 2;
+        grid-row: 2 / span 2;
+        padding-left: 6rem;
+        padding-right: 4rem;
+
+        @include respond(tab-port) {
+            grid-row: 4 / 5;
+        }
+    }
+
+    &__item {
+        margin-bottom: 1.5rem;
+    }
+
+    &__img-box {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+
+        @include respond(tab-port) {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+    }
+
+    &__img {
+
+        @include respond(desktop) {
+            width: 42rem;
+            height: 42rem;
+        }
+
+        @include respond(tab-land) {
+            width: 35rem;
+            height: 35rem;
+        }
+
+        @include respond(small-phone) {
+            width: 100%;
+            height: 100%;
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__title {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+
+        text-transform: uppercase;
+        font-size: 4rem;
+        letter-spacing: 3px;
+
+        text-align: center;
+        line-height: 1;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        @include respond(small-desktop) {
+            font-size: 3.5rem;
+        }
+
+        @include respond(tab-port) {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+        }
+
+        &--11 {
+            font-size: 3.5rem;
+
+            @include respond(small-desktop) {
+                font-size: 3rem;
+            }
+        }
+    }
+}

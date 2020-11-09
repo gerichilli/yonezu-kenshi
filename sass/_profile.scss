@@ -1,0 +1,180 @@
+.profile {
+    position: relative;
+    background-image: linear-gradient(rgba(28,27,32, .9), rgba(28,27,32, .8));
+    grid-row: profile-start / profile-end;
+
+    @include respond(tab-port) {
+        padding-top: $mb-lg;
+        padding-bottom: $mb-lg;
+    }
+
+    &__content {
+        width: 100%;
+        height: 100%;
+        color: $primary-light;
+        display: flex;
+        justify-content: space-around;
+
+        @include respond(tab-land) {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &__text-box {
+        flex-basis: 50%;
+        flex-shrink: 1;
+        padding-right: 2.5rem;
+        padding-top: $mb-md;
+        padding-bottom: $mb-md;
+
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-self: center;
+
+        @include respond(desktop) {
+            flex-basis: 60%;
+        }
+
+        @include respond(small-desktop) {
+            flex-basis: 65%;
+        }
+
+        @include respond(tab-land) {
+            padding-right: 5rem;
+            padding-left: 5rem;
+        }
+
+        @include respond(small-phone) {
+            padding-right: 2.5rem;
+            padding-left: 2.5rem;
+        }
+    }
+
+    &__item {
+        margin-bottom: $mb-md;
+
+        &--hide {
+            display: none;
+        }
+
+        &--show {
+            display: contents;
+        }
+    }
+
+    &__text {
+        margin-bottom: $mb-md;
+        font-size: 1.3rem;
+        line-height: 1.8;
+    }
+}
+
+//************** show and hide button
+
+.btn {
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    margin-top: $mb-md;
+    align-self: center;
+   
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 3px;
+    font-family: $font-primary;
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: rgba(255, 255, 255, .2);
+    transition: all .2s;
+
+    position: relative;
+
+    &--show {
+        animation: btn-color 1.5s infinite;
+    }
+
+    &::before,
+    &::after {
+        opacity: 0;
+        content: "";
+        height: 5rem;
+        width: 5rem;
+        position: absolute;
+        border: 1px solid rgba(255, 255, 255, .3);
+        border-radius: 2px;
+        transform-origin: center;
+    }
+
+    &::before {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) rotate(0);
+
+    }
+
+    &::after {
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%) rotate(-45deg);
+    }
+
+    &:hover {
+        padding: 1.5rem -1rem;
+        color: $primary-light;
+        background-image: none;
+        border: none;
+    }
+
+    &:hover::before {
+        opacity: 1;
+        animation: btn-rotate-bf 3s linear infinite;
+    }
+
+    &:hover::after {
+        opacity: 1;
+        animation: btn-rotate-af 3s linear infinite;
+    }
+}
+
+@keyframes btn-color {
+    100% {
+        color: $primary-light;
+    }
+}
+
+@keyframes btn-rotate-bf {
+    25% {
+        transform: translateX(-50%) rotate(90deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(180deg);
+    }
+
+    75% {
+        transform: translateX(-50%) rotate(270deg);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+@keyframes btn-rotate-af {
+    25% {
+        transform: translateX(50%) rotate(45deg);
+    }
+
+    50% {
+        transform: translateX(50%) rotate(135deg);
+    }
+
+    75% {
+        transform: translateX(50%) rotate(225deg);
+    }
+
+    100% {
+        transform: translateX(50%) rotate(315deg);
+    }
+}

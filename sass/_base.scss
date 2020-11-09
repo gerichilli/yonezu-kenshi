@@ -1,0 +1,85 @@
+// **************** Font-style setting
+$font-primary: 'Montserrat', sans-serif;
+$font-display: 'Libre Baskerville', serif;
+$font-jp: 'Noto Sans JP', sans-serif;
+
+// **************** Color setting
+$primary-light: #ffffff;
+$primary-dark: #1C1B20;
+
+$grey-light: #f8f8f8;
+$green-light: #8db596;
+$yellow: #f1e189;
+$pink: #f4d9c6;
+$dark-pink: #e5c7b3;
+
+$ab-red: #EC5B60;
+$ab-light-red: #E8D7BD;
+$ab-orange: #FA5B3C;
+$ab-purple: #7D7BA3;
+$ab-light-blue: #BEDFD8;
+$ab-blue: #1BC4CE;
+$ab-dark-blue: #034E7B;
+$ab-dark-purple: #3C4392;
+$ab-white: #ffffff;
+$ab-pink: #EF918F;
+$ab-light-pink: #F6C1A8;
+$ab-yellow: #FCE6A8;
+$ab-black: #000;
+$ab-light-green: #48B154;
+$ab-green: #264539;
+$ab-grey: #EFECE9;
+$ab-dark-grey:#bcbab8;
+
+
+// default margin = fixed nav height
+$default-margin: 4rem;
+$mb-sm: .5rem;
+$mb-md: 2rem;
+$mb-lg: 5rem;
+$mb-lger: 8rem;
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+textarea:focus, 
+input:focus{
+    outline: none;
+    border: none;
+}
+
+*:focus {
+    border: none;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: $font-primary;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: $primary-dark;
+    text-rendering: optimizeLegibility;
+}
+
+.container {
+    margin: $default-margin;
+    display: grid;
+    grid-template-rows: [header-start] 100vh [header-end profile-start] minmax(100vh, max-content) [profile-end project-start] min-content [project-end form-start] 100vh [form-end footer-start] 20rem [grid-end];
+    
+    @include respond(phone) {
+        margin: 0;
+        margin-top: $default-margin;
+    }
+}

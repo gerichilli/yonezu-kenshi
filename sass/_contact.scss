@@ -1,0 +1,75 @@
+.contact {
+    background-color: $primary-dark;
+    grid-row: form-start / form-end;
+    color: $primary-light;
+    display: flex;
+    justify-content: space-around;
+
+    position: relative;
+
+    &__stamp-box {
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+    }
+
+    @include respond(tab-land) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.form {
+    flex-basis: 50%;
+    flex-shrink: 1;
+    margin-bottom: $mb-lg;
+
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+
+    @include respond(tab-land) {
+        flex-basis: 65%;
+        width: 80%;
+    }
+
+    &__item,
+    &__item:focus {
+        font-family: $font-primary;
+        color: $primary-light;
+        font-size: 1.6rem;
+        border: none;
+        border-bottom: 1px solid rgba($primary-light, .6);
+        background-color: transparent;
+        margin-bottom: 4rem;
+        padding-bottom: 1.2rem;
+    }
+}
+
+.submit {
+    padding: 1.5rem 3.5rem;
+    cursor: pointer;
+    background-color: $primary-dark;
+    color: rgba($primary-light, .6);
+    border: 1px solid currentColor;
+    font-weight: 300;
+    border-radius: 3px;
+    font-family: $font-primary;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    align-self: center;
+    transition: all .2s;
+
+    &:hover {
+        background-color: $primary-light;
+        color: $primary-dark;
+        border: 1px solid transparent;
+        transform: translateY(-2px);
+    }
+
+    &:focus {
+        transform: translateY(1px);
+    }
+}

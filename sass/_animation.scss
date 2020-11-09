@@ -1,0 +1,69 @@
+//**************** header's hero text animation
+
+.h1-fx {
+    font-weight: 100;
+    animation: h1-fx .7s forwards;
+
+    &:nth-child(6), &:nth-child(1) {
+        animation-delay: 1.2s;
+    }
+
+    &:nth-child(5), &:nth-child(2) {
+        animation-delay: 1s;
+    }
+
+    &:nth-child(4), &:nth-child(3) {
+        animation-delay: .8s;
+    }
+
+    &:nth-child(3), &:nth-child(4) {
+        animation-delay: .6s;
+    }
+
+    &:nth-child(2), &:nth-child(5) {
+        animation-delay: .4s;
+    }
+
+    &:nth-child(1), &:nth-child(6) {
+        animation-delay: .2s;
+    }
+}
+
+@keyframes h1-fx {
+    100% {
+        font-weight: 800;
+    }
+}
+
+//**************** header's heading 2 text animation
+
+.h2-fx {
+    opacity: 0;
+    transform: translateY(-50%);
+    animation: h2-fx .5s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+    animation-delay: 1s;
+}
+
+@keyframes h2-fx {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+//**************** header's heading 3 text animation
+
+.h3-fx {
+    opacity: 0;
+    transform: translateX(50%);
+    animation: h3-fx .5s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes h3-fx {
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
